@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/css/main.css" type="text/css"/>
+    <title>Hello</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo_text">finansicli</h1>
+        
+        <nav class="nav_panel">
+            <form class="form_nav" th:action="@{/logout}" th:method="POST">
+                <input class="input_nav" type="submit" value="Выйти">
+            </form>
+        </nav>
+    </header>
+<br>
+<section class="text_section">
+<h1>Приветы!</h1>
+<h2>Вы на сервере!</h2>
+</section>
+<footer class="footer">
+    <a class="email_weblink" href="mailto:ekip-s@yandex.ru?subject=Вопросы с сайта">Если есть вопросы, напишите на e-mail</a>
+</footer>
+</body>
+</html>

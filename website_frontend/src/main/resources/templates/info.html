@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/css/main.css" type="text/css"/>
+    <title>Info</title>
+</head>
+<body>
+    <body>
+        <header class="header">
+            <h1 class="logo_text">finansicli</h1>
+            
+            <nav class="nav_panel">
+                <form class="form_nav" th:action="@{auth/login}" method="get">
+                    <input class="input_nav" type="submit" value="Войти"/>
+                </form>
+                <form class="form_nav" th:action="@{auth/registration}" method="get">
+                    <input class="input_nav" type="submit" value="Регистрация"/>
+                </form>
+            </nav>
+        </header>
+        <section class="section">
+            <h1 class="header_h1">Описание приложения.</h1>
+    <p>Приложение для учета финансов. Сюда можно вносить ежемесячные траты, кредиты и прибыль в виде зарплаты. Подключать к своему финансовому состоянию родственников. Приложение в основном для обучения меня разным техноллогиям и применение их на практике.</p>
+        </section>
+        <hr>
+        <section class="section block_menu">
+            <h1 class="header_h1">Здесь указаны какие технологии использованы в приложении:</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img class="logo_img" src="/images/Spring.png" alt="Spring"></td>
+                        <td class="">Spring Framework</td>
+                        <td>Нужно будет обновить версию spring-boot-starter-parent после обновления: Spring Security. Так как websecurityconfigureradapter deprecated.</td>
+                    </tr>
+                    <tr>
+                        <td><img class="logo_img" src="/images/postgre.png" alt="Postgre"></td>
+                        <td>PostgreSQL</td>
+                        <td>v15.2</td>
+                    </tr>
+                    <tr>
+                        <td><img class="logo_img" src="/images/docker.png" alt="Docker"></td>
+                        <td>Docker</td>
+                        <td>Сейчас приложение в 2-ух контейнерах: БД и само приложение. Далее разделим как минимум фронт с бэком. Еще скорее всего сделаю отдельный сервис статистики с конектом через Apache Kafka. Далее можно подключить телеграм бота, тоже в отдельной коробке(получится 2 фронта в отдельных коробках).</td>
+                    </tr>
+                    <tr>
+                        <td><img class="logo_img" src="/images/Nginx.png" alt="Nginx"></td>
+                        <td>Nginx</td>
+                        <td>Здесь пока мало настроек, в основном редиректы. Далее можно улучшить.</td>
+                    </tr>
+                    <tr>
+                        <td><img class="logo_img" src="/images/java.png" alt="Java"></td>
+                        <td>Java</td>
+                        <td>Сейчас 11-ая. После обновления Spring Security, нужно будет перейти на 17-ую.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <hr>
+        <section class="section">
+            <h1 class="header_h1">Информация о версиях: </h1>
+            <section class="version_section">
+            <h3 class="header_h3">Версия-01.00 DEMO</h3>
+            <h4 class="statys_done">Статус: done</h4>
+            <ul>
+                <li> простое приложение пока только с логикой регистрации, авторизации и logout;</li>
+                <li> шифрование паролей BCrypt;</li>
+                <li> CSRF;</li>
+                <li> установка docer на сервер;</li>
+                <li> запуск приложения + БД на сервере с помощю docker-compose.yml</li>
+                <li> подвязка домена к серверу;</li>
+                <li> настройка nginx;</li>
+                <li> простые html страницы без css;</li>
+            </ul>
+        </section>
+        <section class="version_section">
+            <h3 class="header_h3">Версия-02.00 DEMO</h3>
+            <h4 class="statys_done">Статус: done</h4>
+            <ul>
+                <li> сделаем header с nav и footer для всех страниц в одном стиле. html + css;</li>
+                <li> подсыпим css в формы и эту страницу с описанием;</li>
+                <li> формирование полной модели данных приложения(сейчас только одна таблица с пользователями);</li>
+
+            </ul>  
+        </section>
+            <section class="version_section">
+                <h3 class="header_h3">Версия-03.00 DEMO</h3>
+                <h4 class="statys_in_work">Статус: in work</h4>
+                <ul>
+                    <li> Создание таблиц бд под схему;</li>
+                    <li> Созданиие моделей в приложении;</li>
+                    <li> CRUD для всех сущностей на уровне сервиса;</li>
+                    <li> Разделение фрот прилозжения с беком (в разные контейнеры);</li>
+                    <li> далее изучаем JS для наведения красот;</li>
+                </ul>
+            </section>
+        </section>
+        <hr>
+        <section class="section">
+            <h1 class="header_h1">Идеи для будущих версий: </h1>
+            <ul class="ul_down">
+                <li>Обновим Spring Security;</li>
+                <li>Огранизовать удобный релиз;</li>
+                <li>Сервис статистики, с конектом через Apache Kafka;</li>
+                <li>Сделать еще один фронт на Телеграм-Роботе;</li>
+                <li>Далее по мере развития приложения;</li>
+            </ul>
+        </section>
+        <hr>
+        <section class="section database_schema">
+            <h1 class="header_h1">Начальная версия схемы БД:(в процессе разработки возможно что-то изменю) </h1>
+            <img class="database_schema_img" src="/images/database_schema.PNG" alt="database schema">
+        </section>
+        <footer class="footer">
+            <a class="email_weblink" href="mailto:ekip-s@yandex.ru?subject=Вопросы с сайта">Если есть вопросы, напишите на e-mail</a>
+        </footer>
+    </body>
+</body>
+</html>
