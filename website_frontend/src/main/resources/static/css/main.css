@@ -68,6 +68,10 @@ td {
     text-shadow: 3px 3px 2px rgb(11, 119, 43);
 }
 
+.logo_link {
+    text-decoration: none;
+}
+
 .nav_panel {
     margin-top: 20px;
     display: flex;
@@ -95,7 +99,7 @@ td {
 }
 
 .footer {
-    height: 80px;
+    height: 100px;
     background-image: url(/images/footerImage.PNG);
     background-size: cover;
     display: flex;
@@ -166,3 +170,24 @@ td {
 .database_schema_img {
     box-shadow: 0px 5px 8px 0px rgba(133, 132, 132, 0.5)
 }
+
+.logo_img_gh {
+    width: 50px;
+    height: 50px;
+    border: solid black;
+    box-shadow: 0px 5px 8px 0px black;
+}
+
+.ing_git_link {
+    margin-top: 10px;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ing_git_name {
+    color: aliceblue;
+    text-shadow: 0px 5px 8px 0px lavender;
+}
+
