@@ -1,23 +1,20 @@
 package ru.finansicli.models;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
-@Entity
-@Table(name = "Person")
 public class Person {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
     private String username;
 
-    @Column(name = "year_of_birth")
+    @Min(value = 1900, message = "Год рождения должен быть больше, чем 1900")
     private int yearOfBirth;
 
-    @Column(name = "password")
     private String password;
 
     public Person() {
@@ -70,3 +67,4 @@ public class Person {
                 '}';
     }
 }
+
