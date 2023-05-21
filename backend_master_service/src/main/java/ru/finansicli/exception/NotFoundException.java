@@ -1,10 +1,12 @@
 package ru.finansicli.exception;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class NotFoundException extends RuntimeException {
     private final LocalDateTime timestamp;
 
