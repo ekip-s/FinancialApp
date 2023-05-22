@@ -7,54 +7,45 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Person")
-public class Person {
+@Table(name = "Transaction")
+public class Transaction {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "username")
-    private String username;
-    @Column(name = "year_of_birth")
-    private int yearOfBirth;
-    @Column(name = "password")
-    private String password;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
+    @Column(name = "amount")
+    private double amount;
+    @OneToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
+    @Column(name = "another_category")
+    private String anotherCategory;
     @Column(name = "creation_dt")
     @DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
     private LocalDateTime creationDT;
     @Column(name = "version")
     private int version;
-    @Transient
-    @OneToMany(mappedBy = "master")
-    private List<AccountSharing> mySharing;
-    @Transient
-    @OneToMany(mappedBy = "slave")
-    private List<AccountSharing> sharingForMe;
-
-    public Person(String username, int yearOfBirth) {
-        this.username = username;
-        this.yearOfBirth = yearOfBirth;
-        this.version = 0;
-    }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Transaction{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", yearOfBirth=" + yearOfBirth +
-                ", password='" + password + '\'' +
+                ", account=" + account +
+                ", amount=" + amount +
+                ", category=" + category +
+                ", anotherCategory='" + anotherCategory + '\'' +
+                ", creationDT=" + creationDT +
+                ", version=" + version +
                 '}';
     }
 }
