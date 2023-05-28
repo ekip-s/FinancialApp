@@ -19,6 +19,16 @@ public class PersonController {
 
     @GetMapping
     public Person getPersonOfLogin(@RequestParam String username) {
-        return personService.getPersonOfLogin(username);
+        return personService.getPersonByLogin(username);
+    }
+
+    @GetMapping("/admin")
+    public Person getPersonById(@RequestParam Long id) {
+        return personService.getPersonById(id);
+    }
+
+    @DeleteMapping("/admin")
+    public void deletePersonById(@RequestParam Long id) {
+        personService.deletePersonById(id);
     }
 }

@@ -9,3 +9,7 @@ public class BackendMasterService {
         SpringApplication.run(BackendMasterService.class, args);
     }
 }
+
+//http://localhost:122/swagger-ui
+//http://localhost:122/v3/api-docs
+//Нужно будет сделать описание для swagger

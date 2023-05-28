@@ -1,7 +1,18 @@
 package ru.finansicli.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDateTime;
+import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Person")
 public class Person {
@@ -10,54 +21,35 @@ public class Person {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "username")
     private String username;
-
     @Column(name = "year_of_birth")
     private int yearOfBirth;
-
     @Column(name = "password")
     private String password;
-
-    public Person() {
-    }
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
+    @Column(name = "creation_dt")
+    @DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
+    private LocalDateTime creationDT;
+    @Column(name = "version")
+    private int version;
+    @Transient
+    @OneToMany(mappedBy = "master")
+    private List<AccountSharing> mySharing;
+    @Transient
+    @OneToMany(mappedBy = "slave")
+    private List<AccountSharing> sharingForMe;
 
     public Person(String username, int yearOfBirth) {
-        this.username = username;
-        this.yearOfBirth = yearOfBirth;
+        this.version = 0;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public Person setParameters() {
+        this.version = 0;
+        this.creationDT = LocalDateTime.now();
+        return this;
     }
 
     @Override
