@@ -28,6 +28,18 @@ public class Category {
     @Column(name = "version")
     private int version;
 
+    public Category setParameters() {
+        this.version = 0;
+        this.creationDT = LocalDateTime.now();
+        return this;
+    }
+
+    public Category setCategoryName(String name) {
+        this.categoryName = name;
+        this.version = this.version++;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Category{" +

@@ -43,9 +43,13 @@ public class Person {
     private List<AccountSharing> sharingForMe;
 
     public Person(String username, int yearOfBirth) {
-        this.username = username;
-        this.yearOfBirth = yearOfBirth;
         this.version = 0;
+    }
+
+    public Person setParameters() {
+        this.version = 0;
+        this.creationDT = LocalDateTime.now();
+        return this;
     }
 
     @Override
